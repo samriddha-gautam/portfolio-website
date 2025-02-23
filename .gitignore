@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+try.css
+
+#photos
+/public/images/photo-profile.jpg
+/public/images/photo-profile.webp

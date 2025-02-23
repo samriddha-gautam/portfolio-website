@@ -9,6 +9,8 @@ export default {
   theme: {
     extend: {
       colors: {
+        customBlack: "rgb(10, 10, 10)",
+        customGreen: "rgb(23, 119, 14)",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
