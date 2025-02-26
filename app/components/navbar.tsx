@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`px-9 py-3.5 sticky top-0 left-0 right-0 backdrop-blur-lg transition-all duration-200 ${
+      className={`px-9 py-3.5 z-50 sticky top-0 left-0 right-0 backdrop-blur-lg transition-all duration-200 ${
         scrolled ? "bg-customBlack/70" : "bg-transparent"
       }`}
     >
