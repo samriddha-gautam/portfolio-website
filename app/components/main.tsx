@@ -6,22 +6,6 @@ import { useState, useEffect } from "react";
 
 export default function main() {
   
-  const [hoverTime, setHoverTime] = useState(0);
-  const [hovering, setHovering] = useState(false);
-
-  useEffect(() => {
-    let interval: NodeJS.Timeout;
-    
-    if (hovering) {
-      interval = setInterval(() => {
-        setHoverTime((prev) => (prev >= 360 ? 360 : prev + 5));
-      }, 50); // Adjust speed if needed
-    } else {
-      setHoverTime(0); // Reset when not hovering
-    }
-
-    return () => clearInterval(interval);
-  }, [hovering]);
 
   return (
     <section className="pt-20">

@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import DarkModeToggle from "./DarkModeToggle";
+import DarkModeToggle from "@/app/components/DarkModeToggle";
 import Link from "next/link"; 
 
 const Navbar = () => {
@@ -32,30 +32,31 @@ const Navbar = () => {
         {/* Left-aligned SG */}
         <ul className="flex">
           <li>
-            <a href="#home" className="font-bold text-5xl text-customGreen">SG.</a>
+            <a href="./app" className="font-bold text-5xl text-customGreen">SG.</a>
           </li>
         </ul>
 
         {/* Right-aligned navigation links */}
         <ul className="flex space-x-6">
-          {[
-            { label: "About Me", id: "about-me" },
-            { label: "Projects", id: "projects" },
-            { label: "Contact", id: "contact" }
-          ].map((item) => (
-            <li key={item.id}>
-              <button
-                onClick={() => handleScrollToSection(item.id)}
-                className="relative group pb-1 text-xl"
-              >
-                {item.label}
-                <span className="absolute right-0 bottom-0 w-[0] 
-                  h-[5px] bg-customGreen transition-all 
-                  duration-200 group-hover:w-full rounded-l-lg"></span>
-              </button>
-            </li>
-          ))}
           <li>
+            <Link href="/blog" className="relative group pb-1 text-xl">
+              Blog
+              <span className="absolute right-0 bottom-0 w-[0] 
+                h-[5px] bg-customGreen transition-all 
+                duration-200 group-hover:w-full rounded-l-lg"></span>
+            </Link>
+            <Link href="/page" className="relative group pb-1 text-xl">
+              About
+              <span className="absolute right-0 bottom-0 w-[0] 
+                h-[5px] bg-customGreen transition-all 
+                duration-200 group-hover:w-full rounded-l-lg"></span>
+            </Link>
+            <Link href="/blog" className="relative group pb-1 text-xl">
+              Contact
+              <span className="absolute right-0 bottom-0 w-[0] 
+                h-[5px] bg-customGreen transition-all 
+                duration-200 group-hover:w-full rounded-l-lg"></span>
+            </Link>
             <Link href="/blog" className="relative group pb-1 text-xl">
               Blog
               <span className="absolute right-0 bottom-0 w-[0] 

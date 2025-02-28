@@ -4,8 +4,8 @@ import Navbar from "./components/navbar";
 import Main from "./components/main";
 import AboutMe from "./components/aboutMe";
 import Projects from "./components/projects";
-import Blog from "./components/blog";
 import Contact from "./components/contact";
+import Blog from "./blog/page";
 
 
 export default function Home() {
@@ -16,8 +16,8 @@ export default function Home() {
       <main>
         <AboutMe />
         <Projects />
-        <Blog />
         <Contact />
+        <Blog />
       </main>
     </div>
   );
