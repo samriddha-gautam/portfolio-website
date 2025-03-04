@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { LuFlashlight,LuFlashlightOff } from "react-icons/lu";
 
 export default function DarkModeToggle() {
   const [theme, setTheme] = useState<string | null>(null);
@@ -21,9 +22,9 @@ export default function DarkModeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="px-2 py-2 bg-gray-200 dark:bg-gray-800 transition-all duration-200 rounded-full"
+      className="flex items-center gap-1 px-2 py-2 transition-all duration-200 rounded-full"
     >
-      {theme === "light" ? "🌙" : "☀️"}
+      {theme === "light" ? <LuFlashlightOff size={22}/> : <LuFlashlight size={22}/>}
     </button>
   );
 }

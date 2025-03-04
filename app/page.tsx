@@ -5,27 +5,38 @@ import Main from "./components/main";
 import AboutMe from "./components/aboutMe";
 import Projects from "./components/projects";
 import Contact from "./components/contact";
+import ScrollToTop from "./components/ScrollToTop";
+import BlobBackground from "./components/BlobBackground";
+import Footer from "./components/footer";
 
 
 export default function Home() {
   return (
-    <div>
+    <BlobBackground>
+    <div className="z-50">
       <Navbar />
-      
+      <div className="relative min-h-screen">
+        <Main />
+      </div>
       {/* This ensures that the About section starts below the fold */}
-      <Main />
-      <div className="min-h-screen "></div>  
         <main>
-          <section id="about" className="py-10 scroll-mt-24">
+          <section id="about" className="py-10 scroll-mt-20">
             <AboutMe />
           </section>
-          <section id="projects" className="py-10 scroll-mt-24">
+          <section id="projects" className="py-10 scroll-mt-20">
             <Projects/>
           </section>
-          <section id="contact" className="py-10 scroll-mt-24">
+          <section id="contact" className="py-10 scroll-mt-20">
             <Contact/>
           </section>
+          <section>
+          </section>
+          <ScrollToTop />
         </main>
+        <footer>
+          <Footer />
+        </footer>
     </div>
+    </BlobBackground>
   );
 }
