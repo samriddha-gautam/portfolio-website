@@ -12,6 +12,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        customBlack:"#1e1e1e",
         customBackground:"rgb(222, 229, 225)" ,
         customGreen: "rgb(23, 119, 14)",
         customWhite: "rgb(255, 255, 255)",

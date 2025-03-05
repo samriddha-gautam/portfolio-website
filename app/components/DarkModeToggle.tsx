@@ -22,9 +22,9 @@ export default function DarkModeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="flex items-center gap-1 px-2 py-2 transition-all duration-200 rounded-full"
+      className="transition-all duration-200 ease-in-out border-2 rounded-3xl p-[2.8px] hover:text-customGreen border-customBlack dark:border-white"
     >
-      {theme === "light" ? <LuFlashlightOff size={22}/> : <LuFlashlight size={22}/>}
+      {theme === "light" ? <LuFlashlightOff size={24}/> : <LuFlashlight size={24}/>}
     </button>
   );
 }

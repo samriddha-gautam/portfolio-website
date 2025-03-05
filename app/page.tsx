@@ -29,8 +29,6 @@ export default function Home() {
           <section id="contact" className="py-10 scroll-mt-20">
             <Contact/>
           </section>
-          <section>
-          </section>
           <ScrollToTop />
         </main>
         <footer>

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import DarkModeToggle from "./DarkModeToggle";
-import { LuMail, LuSquareCode, LuUser, LuNotebookPen } from "react-icons/lu";
+import { LuMail, LuSquareCode, LuUser, LuNotebookPen, LuHouse } from "react-icons/lu";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -13,9 +13,9 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 1);
+      setScrolled(window.scrollY > 100);
       // Check which section is currently in view
-      const sections = ["about", "projects", "contact"  ];
+      const sections = ["about", "projects", "contact","home"  ];
       let currentSection = "";
       sections.forEach((id) => {
         const element = document.getElementById(id);
@@ -64,7 +64,7 @@ const Navbar = () => {
       <div className="flex justify-between items-center mx-10">
         <ul className="flex">
           <li>
-            <a href="/" className="font-bold text-4xl text-customGreen">
+            <a href="#home" className="font-bold text-4xl text-customGreen">
               Sg.
             </a>
           </li>
@@ -72,6 +72,15 @@ const Navbar = () => {
 
         <ul className="flex space-x-12">
           {[
+            {
+              label: (
+                <span className="flex items-center gap-2">
+                  <LuHouse size={22} />
+                  Home
+                </span>
+              ),
+              id: "home",
+            },
             {
               label: (
                 <span className="flex items-center gap-2">
@@ -103,9 +112,9 @@ const Navbar = () => {
             <li key={item.id}>
               <button
                 onClick={() => handleNavigation(item.id)}
-                className={`relative group pb-1 text-lg ${
-                  activeSection === item.id ? "text-customGreen font-bold" : ""
-                }`}
+                className={`relative  group pb-1 text-lg ${
+                  activeSection === item.id ? "text-customGreen font-semibold" : ""
+                } transition-all ease-in`}
               >
                 {item.label}
                 <span
@@ -118,7 +127,7 @@ const Navbar = () => {
           ))}
           <li>
             <span className="relative group">
-                  <Link href="/blog" className={`pb-1 text-lg relative z-10 ${pathname==="/blog" ? "text-customGreen": ""}`}>
+                  <Link href="/blog" className={`pb-1 text-lg relative z-10 ${pathname==="/blog" ? "text-customGreen font-bold": ""}`}>
                 <span className="flex items-center gap-2">
                   <LuNotebookPen size={22} />
                   Blogs
