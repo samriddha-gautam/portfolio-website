@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import DarkModeToggle from "./DarkModeToggle";
-import { LuMail, LuSquareCode, LuUser, LuNotebookPen, LuHouse } from "react-icons/lu";
+import { LuMail, LuSquareCode, LuUser, LuNotebookPen, LuHouse } from "react-icons/lu"
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
