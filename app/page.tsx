@@ -15,11 +15,10 @@ export default function Home() {
     <BlobBackground>
     <div className="z-50">
       <Navbar />
-      <div className="relative min-h-screen">
-        <Main />
-      </div>
-      {/* This ensures that the About section starts below the fold */}
         <main>
+          <section className="relative min-h-screen">
+            <Main />
+          </section>
           <section id="about" className="py-10 scroll-mt-20">
             <AboutMe />
           </section>
