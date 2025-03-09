@@ -78,7 +78,7 @@ const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className={`px-6 py-3.5 z-50 sticky top-0 left-0 right-0 overflow-hidden lg:mx-12 transition-all duration-200 ${
+      className={`md:pr-20 md:pl-9 py-3.5 z-50 sticky top-0 left-0 right-0 overflow-hidden transition-all duration-200 ${
         scrolled ? "backdrop-blur-lg bg-black/10 shadow-lg" : ""
       }`}
     >
