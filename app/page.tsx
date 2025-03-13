@@ -13,7 +13,7 @@ import Footer from "./components/footer";
 export default function Home() {
   return (
     <BlobBackground>
-    <div className="z-50">
+    <div className="z-50 ">
       <Navbar />
         <main>
           <section className="relative min-h-screen">

@@ -11,14 +11,15 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
-  const navRef = useRef<HTMLDivElement>(null); // Ref for navbar
+  const navRef = useRef<HTMLDivElement>(null);
 
-  // Handle scroll: track active section & close mobile menu when scrolling past 300px
+  // Handle scroll: track active section & close mobile menu when scrolling past 160px
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 100);
 
-      if (window.scrollY > 160) {
+      // Only close menu if it's open and user is scrolling past 160px
+      if (menuOpen && window.scrollY > 160) {
         setMenuOpen(false);
       }
 
@@ -39,7 +40,7 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [menuOpen]);
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -78,23 +79,23 @@ const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className={`md:pr-20 md:pl-9 py-3.5 z-50 sticky top-0 left-0 right-0 overflow-hidden transition-all duration-200 ${
+      className={`md:pr-20 md:pl-9 py-3.5 z-50 sticky top-0 left-0 right-0 transition-all duration-200 ${
         scrolled ? "backdrop-blur-lg bg-black/10 shadow-lg" : ""
       }`}
     >
       <div className="flex justify-between items-center lg:mx-9 relative w-full">
-       {/* Hamburger / Close Button */}
-       <button
-         className="md:hidden text-white transition-all duration-300 z-50"
-         onClick={() => setMenuOpen((prev) => !prev)}
-       >
-         {menuOpen ? <LuX size={28} /> : <LuMenu size={28} />}
-       </button>
+        {/* Hamburger / Close Button */}
+        <button
+          className="md:hidden text-white transition-all duration-300 z-50 relative ml-4"
+          onClick={() => setMenuOpen((prev) => !prev)}
+        >
+          {menuOpen ? <LuX size={28} /> : <LuMenu size={28} />}
+        </button>
 
-       {/* Logo */}
-       <a href="#home" className="hidden md:flex font-bold text-4xl text-customGreen">
-         Sg.
-       </a>
+        {/* Logo */}
+        <a href="#home" className="hidden md:flex font-bold text-4xl text-customGreen">
+          Sg.
+        </a>
 
         <ul className="hidden md:flex space-x-12">
           {[
@@ -139,13 +140,17 @@ const Navbar = () => {
         </ul>
       </div>
 
+      {/* ✅ Fixed the mobile menu positioning issue */}
       <div
-        className={`md:hidden fixed top-0 left-0 w-full bg-black/70 z-40 transition-all duration-300 ease-in-out transform ${
-          menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-24 "
+        className={`md:hidden fixed top-0 left-0 w-full h-auto bg-black/50 backdrop-blur-sm transition-all duration-300 ease-in-out ${
+          menuOpen ? "opacity-100 visible py-6" : "opacity-0 invisible"
         }`}
+        style={{
+          zIndex: 40, // Ensure menu is above everything
+        }}
       >
 
-        <ul className="flex flex-col items-center space-y-4 my-6 py-8">
+        <ul className="flex flex-col items-center justify-center space-y-4 py-6">
           {[
             { label: <><LuHouse size={22} /> Home</>, id: "home" },
             { label: <><LuUser size={22} /> About</>, id: "about" },
