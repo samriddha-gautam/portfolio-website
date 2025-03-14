@@ -1,3 +1,5 @@
+import { GiSoccerBall , GiCampingTent , GiGamepad  } from "react-icons/gi";
+
 export default function AboutMe() {
     return (
       <section id="about-me" className="min-h-screen flex flex-col ">
@@ -19,11 +21,20 @@ export default function AboutMe() {
           I watched a youtube video suggested in my page about developing a website and from then on I decdied 
           on what I had to do.
         </p>
-        <p className="text-xl md:text-2xl font-normal">
-          These are my other areas of interest:
-          <li><span className="text-customGreen font-normal italic">Football</span></li>
-          <li><span className="text-customGreen font-normal italic">Travelling</span></li>
-          <li><span className="text-customGreen font-normal italic">Mobile Games</span></li>
+        <p className="flex-col text-xl md:text-2xl font-normal">
+          These are my other areas of interest: <br /><br />
+          <span className="flex gap-2 items-center text-customGreen font-normal italic">
+            <span className="dark:text-white"><GiSoccerBall size={36}/></span>
+            Football
+          </span><br />
+          <span className="flex gap-2  items-center text-customGreen font-normal italic">
+            <span className="dark:text-white"><GiCampingTent size={36}/></span>
+            Travelling  
+          </span><br />
+          <span className="flex gap-2  items-center text-customGreen font-normal italic">
+            <span className="dark:text-white"><GiGamepad size={36}/></span>
+            Mobile Games  
+          </span><br />
         </p>
         </div>
       </section>

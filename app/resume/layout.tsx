@@ -1,15 +1,42 @@
-export default function RootLayout({
+"use client";
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./resume.css"
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+ const metadata: Metadata = {
+  title: "Resume",
+  description: "My Resume",
+};
+
+
+export default function Layout({
     children,
-  }: Readonly<{
-    children: React.ReactNode;
-  }>) {
-    return (
-      <html lang="en" className="dark">
-        <body
-          className="bg-customBackground dark:bg-dark-customBackground text-dark-customBackground dark:text-customWhite transition-all duration-200 ease-in-out"
-        >
-          {children}
-        </body>
-      </html>
-    );
+  }: {
+    children: React.ReactNode
+  }) {
+    const pathname = usePathname();
+
+  useEffect(() => {
+    if (pathname === "/") {
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+        const section = document.getElementById(hash);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+  }, [pathname]);
+  return <>{children}</>;
   }
