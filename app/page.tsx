@@ -19,13 +19,13 @@ export default function Home() {
           <section className="relative min-h-screen">
             <Main />
           </section>
-          <section id="about" className="py-10 scroll-mt-20">
+          <section id="about" className="py-6 scroll-mt-14">
             <AboutMe />
           </section>
-          <section id="projects" className="py-10 scroll-mt-20">
+          <section id="projects" className="py-6 scroll-mt-14">
             <Projects/>
           </section>
-          <section id="contact" className="py-10 scroll-mt-20">
+          <section id="contact" className="py-6 scroll-mt-14">
             <Contact/>
           </section>
           <ScrollToTop />

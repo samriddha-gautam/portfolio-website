@@ -10,7 +10,7 @@ const StarryBackground = () => {
       x: Math.random() * 100, // Random x position in viewport percentage
       y: Math.random() * 100, // Random y position in viewport percentage
       size: Math.random() * 3 + 1, // Random star size (1px to 4px)
-      duration: Math.random() * 2 + 1, // Random twinkle duration (1s to 3s)
+      duration: Math.random() * 4 + 1, // Random twinkle duration (1s to 3s)
     }));
     setStars(starArray);
   }, []);
