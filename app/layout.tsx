@@ -3,20 +3,6 @@
 import StarryBackground from "./components/StarryBackground";
 import "./globals.css";
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
-
-// export const metadata: Metadata = {
-//   title: "Samriddha Gautam",
-//   description: "Portfolio Website",
-// };
 
 export default function RootLayout({
   children,

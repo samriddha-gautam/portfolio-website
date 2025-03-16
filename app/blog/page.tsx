@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link";
 
 export default function Blog() {
     return (
@@ -6,9 +7,9 @@ export default function Blog() {
         {/* <Navbar />       */}
         <div className="flex flex-col items-center justify-center h-screen">
         <h1 className="text-customGreen font-bold text-5xl">Coming Soon....</h1>
-        <a href="/" className="w-[50%] text-center text-3xl bg-white text-black p-4 m-3 rounded-lg shadow-lg font-bold dark:hover:bg-gray-300">
+        <Link href="/" className="w-[50%] text-center text-3xl bg-white text-black p-4 m-3 rounded-lg shadow-lg font-bold dark:hover:bg-gray-300">
           <button>GO BACK</button>
-        </a>
+        </Link>
         </div>
       </section>
     );

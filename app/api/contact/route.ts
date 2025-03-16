@@ -22,8 +22,12 @@ export async function POST(req: Request) {
     console.log("✅ Contact saved successfully");
 
     return NextResponse.json({ success: true, message: "Message sent!" }, { status: 201 });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("❌ Error saving contact:", error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    let errorMessage="An unknown error occured"
+    if(error instanceof Error){
+      errorMessage=error.message;
+    }
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }

@@ -33,7 +33,8 @@ export default function Contact() {
       const data = await res.json();
       setResponseMessage(res.ok ? "Sent" : data.error); // Show "Sent" when successful
     } catch (error) {
-      setResponseMessage("Error sending message");
+      console.log("Error Sending Messages",error);
+      setResponseMessage("Error Sending Message");
     }
   
     setLoading(false);
