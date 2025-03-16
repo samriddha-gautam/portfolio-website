@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/mydatabase";
+const MONGODB_URI = process.env.MONGODB_URI as string;
 
 export async function connectToDatabase() {
   try {
@@ -10,7 +10,7 @@ export async function connectToDatabase() {
     }
 
     console.log("🔄 Connecting to MongoDB...");
-    await mongoose.connect(MONGODB_URI);
+    await mongoose.connect(MONGODB_URI,{dbName: "portfolio-website"});
     console.log("✅ Successfully connected to MongoDB");
   } catch (error) {
     console.error("❌ MongoDB connection error:", error);
