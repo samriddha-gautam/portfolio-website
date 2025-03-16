@@ -1,6 +1,4 @@
 "use client";
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./blog.css"
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
