@@ -1,11 +1,21 @@
 import { NextResponse } from "next/server";
 
 export function middleware(req: Request) {
-    const allowedOrigin = "http://samriddhagautam.com.np"; // Replace with your actual domain
+    const allowedOrigins = [
+        "https://samriddhagautam.com.np",
+        "https://www.samriddhagautam.com.np"
+    ];
     const origin = req.headers.get("origin");
 
-    if (origin && origin !== allowedOrigin) {
-        return NextResponse.json({ error: "CORS Policy: Unauthorized origin" }, { status: 403 });
+    if (origin && !allowedOrigins.includes(origin)) {
+        return new NextResponse(null, {
+            status: 403,
+            headers: {
+                "Access-Control-Allow-Origin": origin,
+                "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type",
+            },
+        });
     }
 
     return NextResponse.next();
