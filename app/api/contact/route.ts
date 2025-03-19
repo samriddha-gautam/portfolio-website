@@ -1,33 +1,41 @@
+// route.ts
 import { NextResponse } from "next/server";
 import { connectToDatabase } from "@/lib/db";
 import Contact from "@/models/Contact";
+import { z } from "zod";
+import rateLimit from "@/lib/rateLimiter";
+
+// Zod Schema for Input Validation
+const contactSchema = z.object({
+  name: z.string().min(2).max(50).trim(),
+  email: z.string().email().trim().toLowerCase(),
+  message: z.string().max(1000).trim().or(z.literal("")),
+});
 
 export async function POST(req: Request) {
   try {
-    await connectToDatabase();
-
-    const { name, email, message } = await req.json();
-    
-    if (!name || !email || !message) {
-      return NextResponse.json({ error: "All fields are required" }, { status: 400 });
+    // Apply rate limiting
+    const limited = await rateLimit(req);
+    if (limited) {
+      return NextResponse.json({ error: "Too many requests. Try again later." }, { status: 429 });
     }
 
-    // Log received data
-    console.log("📩 Received data:", { name, email, message });
+    await connectToDatabase();
+    const body = await req.json();
 
-    const newContact = new Contact({ name, email, message });
+    // Validate Input
+    const validatedData = contactSchema.safeParse(body);
+    if (!validatedData.success) {
+      return NextResponse.json({ error: "Invalid input data." }, { status: 400 });
+    }
 
-    // Try saving and log potential issues
+    // Save to Database
+    const newContact = new Contact(validatedData.data);
     await newContact.save();
-    console.log("✅ Contact saved successfully");
 
     return NextResponse.json({ success: true, message: "Message sent!" }, { status: 201 });
   } catch (error: unknown) {
     console.error("❌ Error saving contact:", error);
-    let errorMessage="An unknown error occured"
-    if(error instanceof Error){
-      errorMessage=error.message;
-    }
-    return NextResponse.json({ error: errorMessage }, { status: 500 });
+    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
 }
