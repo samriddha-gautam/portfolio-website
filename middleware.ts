@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 export function middleware(req: Request) {
-    const allowedOrigin = "http://localhost:3000"; // Replace with your actual domain
+    const allowedOrigin = "http://samriddhagautam.com.np"; // Replace with your actual domain
     const origin = req.headers.get("origin");
 
     if (origin && origin !== allowedOrigin) {
