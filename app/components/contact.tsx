@@ -56,7 +56,7 @@ export default function Contact() {
             name="name"
             value={formData.name} 
             onChange={handleChange} 
-            className="p-3 rounded-2xl text-customGreen focus:outline-none font-semibold" 
+            className="p-3 rounded-2xl text-black focus:outline-none font-semibold" 
             placeholder="Your Name"
           />
         </div>
@@ -67,7 +67,7 @@ export default function Contact() {
             name="email"
             value={formData.email} 
             onChange={handleChange} 
-            className="p-3 rounded-2xl text-customGreen focus:outline-none font-semibold" 
+            className="p-3 rounded-2xl text-black focus:outline-none font-semibold" 
             placeholder="Your Email"
           />
         </div>
@@ -78,7 +78,7 @@ export default function Contact() {
             value={formData.message}
             onChange={handleChange}
             rows={4}
-            className="rounded-3xl w-full p-3 text-customGreen focus:outline-none font-semibold resize-none"
+            className="rounded-3xl w-full p-3 text-black focus:outline-none font-semibold resize-none"
             placeholder="Any Message?"
           ></textarea>
         </div>

@@ -29,7 +29,9 @@ export default function Main() {
       {/* Buttons */}
       <div className="mt-6 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
         <Link href="https://github.com/samriddha-gautam/">
-          <button className="flex items-center justify-center gap-2 w-full sm:w-44 h-12 sm:h-14 text-lg sm:text-2xl bg-customGreen text-white rounded-lg hover:bg-green-800 shadow-xl hover:shadow-[0_0_15px_1px_rgba(72,255,72,0.8)] transition ease-in-out">
+          <button className="flex items-center justify-center gap-2 w-full sm:w-44 h-12 sm:h-14
+                   text-lg sm:text-2xl bg-customGreen text-white rounded-lg hover:bg-green-800
+                  shadow-xl hover:shadow-[0_0_15px_1px_rgba(72,255,72,0.8)] transition ease-in-out">
             <LuGitFork />
             Github
           </button>
