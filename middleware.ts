@@ -3,7 +3,9 @@ import { NextResponse } from "next/server";
 export function middleware(req: Request) {
     const allowedOrigins = [
         "https://samriddhagautam.com.np",
-        "https://www.samriddhagautam.com.np"
+        "https://www.samriddhagautam.com.np",
+        "https://localhost:3000",
+        "https://samriddhagautam.vercel.app",
     ];
     const origin = req.headers.get("origin");
 
