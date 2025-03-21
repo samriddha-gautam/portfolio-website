@@ -61,7 +61,7 @@ export default function TechStackCards() {
         const itemsInLastRow = totalItems % cols || cols;
 
         // Reset previous col-span classes
-        for (let item of items) {
+        for (const item of items) {
           item.classList.remove(
             "lg:col-span-2",
             "lg:col-span-3",
