@@ -24,6 +24,7 @@ export default function Main() {
         <p className="pt-6 text-3xl sm:text-4xl">
           I AM <span className="text-customGreen">SAMRIDDHA GAUTAM</span>
         </p>
+      
       </div>
 
       {/* Buttons */}

@@ -1,10 +1,11 @@
 import { GiSoccerBall , GiCampingTent , GiGamepad  } from "react-icons/gi";
+import TechStackCards from "./techstack";
 
 export default function AboutMe() {
     return (
-      <section id="about-me" className="min-h-screen flex flex-col ">
+      <section id="about-me" className="min-h-screen flex flex-col pb-32">
         <div className="mx-12">
-        <h1 className="text-5xl pb-8 text-center">Know<strong className="text-customGreen">Me</strong></h1>
+        <h1 className="sm:text-4xl md:text-6xl py-8 text-center font-bold">Know<strong className="text-customGreen">Me</strong></h1>
         <p className="text-xl md:text-2xl font-normal"> 
           Hello everyone, my name is <span className="text-customGreen font-normal">Samriddha</span>. 
           I am from <span className="text-customGreen font-normal">Kathmandu</span>,
@@ -21,6 +22,8 @@ export default function AboutMe() {
           I watched a youtube video suggested in my page about developing a website and from then on I decdied 
           on what I had to do.
         </p>
+        <br />
+        <br />
         <p className="flex-col text-xl md:text-2xl font-normal">
           These are my other areas of interest: <br /><br />
           <span className="flex gap-2 items-center text-customGreen font-normal italic">
@@ -37,6 +40,7 @@ export default function AboutMe() {
           </span><br />
         </p>
         </div>
+        <TechStackCards/>
       </section>
     );
   }

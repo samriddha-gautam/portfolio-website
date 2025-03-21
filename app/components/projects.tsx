@@ -1,3 +1,7 @@
+import { FaGitAlt } from "react-icons/fa";
+import { TbWorldCode } from "react-icons/tb";
+
+
 const cards = [
   {
     title: "ChatBot",
@@ -46,8 +50,8 @@ const cards = [
 
 export default function Projects() {
     return (
-      <section id="projects" className="min-h-screen flex flex-col items-center">
-        <h1 className="text-5xl">My<strong className="text-customGreen">Works</strong></h1>
+      <section id="projects" className="min-h-screen flex flex-col items-center pb-32">
+        <h1 className="sm:text-4xl md:text-6xl py-8 text-center font-bold">My<strong className="text-customGreen">Works</strong></h1>
         <p className="text-3sm"> 
           These are my my most recent projects.
         </p>
@@ -66,23 +70,28 @@ export default function Projects() {
           <img src={card.image} alt={card.title} className="w-full mt-4 h-40 object-cover rounded-md" />
           <p className="text-center">{card.description}</p>
           <div className="flex justify-center m-4 gap-2">
-            <a href={card.siteLink} className="flex items-center justify-center gap-2 p-4
-                   text-sm md:text-lg bg-customGreen text-white rounded-lg hover:bg-green-800
-                  shadow-md hover:shadow-[0_0_15px_1px_rgba(72,255,72,0.8)] transition ease-in-out">
+            <a href={card.siteLink} className="flex items-center justify-center gap-2 p-3
+                   text-sm md:text-lg bg-customGreen text-white rounded-md  
+                  shadow-md hover:shadow-[0_0_3px_1px_rgba(72,255,72,0.8)] transition ease-in-out">
+              <TbWorldCode 
+                size={24}
+              />
               View Site
             </a>
-            <a href={card.codeLink} className="flex items-center justify-center gap-2 p-4
-            bg-white dark:bg-white hover:bg-gray-200 dark:hover:bg-gray-300 
-            text-sm md:text-lg rounded-lg text-customGreen shadow-xl 
-            hover:shadow-[0_0_15px_1px_rgba(72,255,72,0.8)] transition ease-in-out">
+            <a href={card.codeLink} className="flex items-center justify-center gap-2 p-3
+            bg-white dark:bg-white 
+            text-xs md:text-lg rounded-md text-customGreen shadow-md 
+            hover:shadow-[0_0_3px_1px_rgba(72,255,72,0.8)] transition ease-in-out">
+              <FaGitAlt 
+                size={24}
+              />
               View Code
             </a>
           </div>
         </div>
-      ))}
-    </div>
-
-        
+        ))}
+        </div>
+        <hr />
       </section>
     );
   }

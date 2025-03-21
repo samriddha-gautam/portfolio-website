@@ -44,11 +44,11 @@ export default function Contact() {
   
 
   return (
-    <section id="contact" className="min-h-screen flex flex-col items-center gap-6">
-      <h1 className="text-5xl">
+    <section id="contact" className="min-h-screen flex flex-col pb-32 items-center gap-6">
+      <h1 className="sm:text-4xl md:text-6xl py-8 text-center font-bold">
         Contact<strong className="text-customGreen">Me</strong>
       </h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 bg-black/70 p-6 rounded-lg shadow-md">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 bg-black/20 backdrop-blur-sm p-6 rounded-lg shadow-md">
         <div className="flex flex-col md:flex-row gap-2 p-4 bg-customGreen/50 rounded-lg">
           <label className="md:w-24 font-semibold text-xl">Name:</label>
           <input 
