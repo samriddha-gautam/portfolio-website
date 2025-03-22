@@ -2,7 +2,13 @@
 // import { Geist, Geist_Mono } from "next/font/google";
 import StarryBackground from "./components/StarryBackground";
 import "./globals.css";
+import { Comfortaa } from 'next/font/google';
 
+// Initialize the font
+const comfortaaFontClass = Comfortaa({
+  weight: ['300','700'], 
+  subsets: ['latin'], 
+});
 
 export default function RootLayout({
   children,
@@ -10,9 +16,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" >
       <body
-        className="bg-customBackground dark:bg-dark-customBackground text-dark-customBackground dark:text-customWhite transition-all duration-200 ease-in-out"
+        className={`${comfortaaFontClass.className} bg-customBackground dark:bg-dark-customBackground text-dark-customBackground dark:text-customWhite transition-all duration-200 ease-in-out`}
       >
         <StarryBackground />
         {children}

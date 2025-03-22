@@ -19,7 +19,7 @@ export default function AboutMe() {
         <p className="text-xl md:text-2xl font-normal">
           My interest in programming and coding caught traction when I was in my
           <span className="text-customGreen font-normal italic"> 9<sup>th</sup> grade</span>.
-          I watched a youtube video suggested in my page about developing a website and from then on I decdied 
+          I watched videos suggested in my youtube page about developing a website and from then on I decdied 
           on what I had to do.
         </p>
         <br />

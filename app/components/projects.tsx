@@ -64,15 +64,15 @@ export default function Projects() {
                      duration-300 ease-in-out cursor-default"
           style={{boxShadow: "0px 2px 6px rgba(23, 119, 14, 0.5)"}}
         >
-          <h1 className="text-center text-2xl md:text-4xl lg:text-5xl my-4 font-bold ">
+          <h1 className="text-center text-xl md:text-3xl lg:text-4xl my-4 font-bold ">
             {card.title}
           </h1>
           <img src={card.image} alt={card.title} className="w-full mt-4 h-40 object-cover rounded-md" />
           <p className="text-center">{card.description}</p>
-          <div className="flex justify-center m-4 gap-2">
+          <div className="flex flex-col lg:flex-row justify-center m-4 gap-4">
             <a href={card.siteLink} className="flex items-center justify-center gap-2 p-3
                    text-sm md:text-lg bg-customGreen text-white rounded-md  
-                  shadow-md hover:shadow-[0_0_3px_1px_rgba(72,255,72,0.8)] transition ease-in-out">
+                  shadow-md hover:shadow-[0_0_3px_1px_rgba(255,255,255,0.8)] transition ease-in-out">
               <TbWorldCode 
                 size={24}
               />

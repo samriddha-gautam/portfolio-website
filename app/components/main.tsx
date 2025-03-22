@@ -11,7 +11,7 @@ export default function Main() {
     >
       <div className="pb-8">
         <div className={`md:flex justify-center lg:justify-start text-3xl sm:text-4xl`}>
-          <h2>Hey There !!</h2>
+          <h2>Yo !!</h2>
           <motion.span
             animate={{ rotate: [0, 20, -10, 20, -10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}

@@ -56,18 +56,18 @@ export default function Contact() {
             name="name"
             value={formData.name} 
             onChange={handleChange} 
-            className="p-3 rounded-2xl text-black focus:outline-none font-semibold" 
+            className="p-3 rounded-2xl text-gray-600 focus:outline-none font-semibold placeholder-gray-500 placeholder-opacity-50" 
             placeholder="Your Name"
           />
         </div>
-        <div className="flex flex-col md:flex-row gap-2 p-4 bg-customGreen/50 rounded-lg">
+        <div className="flex flex-col md:flex-row gap-2 p-4 bg-customGreen/50 rounded-lg ">
           <label className="md:w-24 font-semibold text-xl">Email:</label>
           <input 
             type="email" 
             name="email"
             value={formData.email} 
             onChange={handleChange} 
-            className="p-3 rounded-2xl text-black focus:outline-none font-semibold" 
+            className="p-3 rounded-2xl text-gray-600 focus:outline-none font-semibold placeholder-gray-500 placeholder-opacity-50" 
             placeholder="Your Email"
           />
         </div>
@@ -78,11 +78,11 @@ export default function Contact() {
             value={formData.message}
             onChange={handleChange}
             rows={4}
-            className="rounded-3xl w-full p-3 text-black focus:outline-none font-semibold resize-none"
+            className="rounded-3xl w-full p-3 text-gray-600 focus:outline-none font-semibold resize-none placeholder-gray-500 placeholder-opacity-50"
             placeholder="Any Message?"
           ></textarea>
         </div>
-        <button type="submit" className="bg-customGreen p-3 rounded-xl font-semibold" disabled={loading}>
+        <button type="submit" className="bg-customGreen p-3 rounded-xl font-semibold hover:bg-white hover:text-customGreen hover:shadow-md transition duration-200 ease-in-out " disabled={loading}>
           {loading ? "Sending..." : "Send"}
         </button>
         {responseMessage && <p className="text-white">{responseMessage}</p>}

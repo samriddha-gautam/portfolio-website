@@ -109,6 +109,7 @@ export default function TechStackCards() {
               className="flex border-2 rounded-lg bg-black/20 backdrop-blur-[2px] 
                          border-customGreen md:p-10 transition 
                          duration-300 ease-in-out items-center justify-center p-4"
+                         style={{boxShadow: "0px 2px 6px rgba(23, 119, 14, 0.5)"}}
             >
               {card.icon}
             </div>
@@ -124,6 +125,7 @@ export default function TechStackCards() {
               className="flex border-2 rounded-lg bg-black/20 backdrop-blur-[2px] 
                          border-customGreen md:p-10 transition 
                          duration-300 ease-in-out items-center justify-center p-4"
+                         style={{boxShadow: "0px 2px 6px rgba(23, 119, 14, 0.5)"}}
             >
               {tool.icon}
             </div>

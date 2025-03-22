@@ -15,11 +15,13 @@ import Footer from "../components/footer";
         <Navbar />      
         <section id="resume" className="m-8 overflow-hidden">
         <a href="/pdf/resume.pdf" download="resume.pdf" className=" m-8 flex items-center justify-center">
-            <button className="flex items-center justify-center gap-2 bg-customGreen p-2 rounded-lg w-[30%] text-lg md:text-2xl">
+            <button className="flex items-center justify-center gap-2 bg-customGreen px-6 py-3  rounded-lg w-fit text-lg md:text-2xl">
               Download Resume
+              <div className="hidden md:flex">
               <LuCloudDownload 
                 size={32} 
               />
+              </div>
               </button>
           </a> 
 
@@ -242,11 +244,13 @@ import Footer from "../components/footer";
 
           </div>
           <a href="/pdf/resume.pdf" download="resume.pdf" className=" m-8 flex items-center justify-center">
-            <button className="flex items-center justify-center gap-2 bg-customGreen p-2 rounded-lg w-[30%] text-lg md:text-2xl">
+            <button className="flex items-center justify-center gap-2 bg-customGreen px-6 py-3  rounded-lg w-fit text-lg md:text-2xl">
               Download Resume
+              <div className="hidden md:flex">
               <LuCloudDownload 
                 size={32} 
               />
+              </div>
               </button>
           </a> 
           <Footer/>
