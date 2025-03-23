@@ -75,23 +75,23 @@ const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className={`md:px-10 px-6 py-3.5 z-50 sticky top-0 left-0 right-0 transition-all duration-200 ${
+      className={`md:px-16 px-6 py-3.5 z-50 sticky top-0 left-0 right-0 transition-all duration-200 ${
         scrolled ? "backdrop-blur-lg bg-black/10 shadow-lg" : ""
       }`}
     >
       <div className="flex justify-between items-center w-full md:flex-wrap md:gap-4">
         {/* Hamburger / Close Button */}
         <button
-          className="md:hidden text-white transition-all duration-300 z-50 relative"
+          className="md:hidden text-black dark:text-white transition-all duration-300 z-50 relative"
           onClick={() => setMenuOpen((prev) => !prev)}
         >
           {menuOpen ? <LuX size={28} /> : <LuMenu size={28} />}
         </button>
 
         {/* Logo */}
-        <a href="#home" className="hidden md:flex font-bold text-4xl text-customGreen">
+        <Link href="/" className="flex font-bold text-4xl text-green-500 z-50">
           Sg.
-        </a>
+        </Link>
 
         <ul className="hidden md:flex space-x-8 md:flex-wrap md:gap-2">
           {[

@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" >
       <body
-        className={`${comfortaaFontClass.className} bg-customBackground dark:bg-dark-customBackground text-dark-customBackground dark:text-customWhite transition-all duration-200 ease-in-out`}
+        className={`${comfortaaFontClass.className}  text-dark-customBackground dark:text-customWhite transition-all duration-200 ease-in-out`}
       >
         <StarryBackground />
         {children}

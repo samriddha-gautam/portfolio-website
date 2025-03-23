@@ -5,7 +5,7 @@
 :root {
   --background: linear-gradient(
     135deg,
-    #ffffff 0%,    /* pure white */
+    #ffffff 0%,    
     #f5f5f5 50%,   /* light grayish white */
     #e5e5e5 100%   /* slightly darker white */
   );
@@ -23,8 +23,8 @@
     #1a1a1a 50%,
     #161616 60%,
     #0e0e0e 70%,
-    #262626 100% 
-  );
+    #262626 100%
+    );
   --foreground: rgb(245, 245, 245);
 }
 
@@ -63,7 +63,11 @@
 
   @keyframes twinkle {
     0%,100%{
-      opacity: 0.2;
+      opacity: 0.1;
+      
+    }
+    10%{
+      opacity: 0.3;
       box-shadow: 0 0 7px 1px rgba(255, 255, 255, 0.2);
     }
     30%{
@@ -73,7 +77,11 @@
     }
     50% {
       opacity: 0.6;
-      box-shadow: 0 0 7px 1px rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 7px 1px rgba(255, 255, 255, 0.7);
+    }
+    60% {
+      opacity: 0.6;
+      box-shadow: 0 0 7px 1px rgba(255, 255, 255, 0.9);
     }
   }
 }

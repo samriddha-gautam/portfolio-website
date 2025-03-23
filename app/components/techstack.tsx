@@ -101,7 +101,7 @@ export default function TechStackCards() {
   return (
     <div>
       <div className="sm:pt-12 pt-32 pb-24 flex flex-col items-center">
-        <h1 className="text-3xl pb-8 text-center underline font-bold">My Skills</h1>
+        <h1 className="text-2xl pb-8 text-center underline font-bold">My Skills</h1>
         <div className="tools-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 m-4 md:m-12">
           {cards.map((card, index) => (
             <div
@@ -117,7 +117,7 @@ export default function TechStackCards() {
         </div>
       </div>
       <div className="sm:pt-12 py-32 flex flex-col items-center">
-        <h1 className="text-3xl pb-8 text-center underline font-bold">Tools I Use</h1>
+        <h1 className="text-2xl pb-8 text-center underline font-bold">Tools I Use</h1>
         <div className="tools-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 m-4 md:m-12">
           {tools.map((tool, index) => (
             <div

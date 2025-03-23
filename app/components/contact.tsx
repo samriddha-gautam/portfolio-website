@@ -45,7 +45,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="min-h-screen flex flex-col pb-32 items-center gap-6">
-      <h1 className="sm:text-4xl md:text-6xl py-8 text-center font-bold">
+      <h1 className="text-4xl md:text-6xl py-8 text-center font-bold">
         Contact<strong className="text-customGreen">Me</strong>
       </h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 bg-black/20 backdrop-blur-sm p-6 rounded-lg shadow-md">

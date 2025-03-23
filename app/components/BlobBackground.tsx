@@ -52,7 +52,7 @@ export default function BlobBackground({ children }: BlobBackgroundProps) {
           />
         </svg>
         <svg
-          className="absolute left-44 w-96 h-96 opacity-35"
+          className="absolute left-44 w-96 h-96 opacity-45"
           viewBox="0 0 200 200"
           xmlns="http://www.w3.org/2000/svg"
         >

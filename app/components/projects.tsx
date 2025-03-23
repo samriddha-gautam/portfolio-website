@@ -7,7 +7,7 @@ const cards = [
     title: "ChatBot",
     description: "A simple chatbot that uses natural language processing.",
     image: "chatbot.jpg",
-    siteLink: "#",
+    siteLink: "https://grok.com",
     codeLink: "#",
   },
   {
@@ -28,21 +28,21 @@ const cards = [
     title: "Portfolio",
     description: "A personal portfolio showcasing projects and skills.",
     image: "portfolio.jpg",
-    siteLink: "#",
-    codeLink: "#",
+    siteLink: "https://samriddhagautam.com.np",
+    codeLink: "https://github.com/samriddha-gautam/portfolio-website",
   },
   {
     title: "E-Commerce",
     description: "An online store built with modern web technologies.",
     image: "ecommerce.jpg",
-    siteLink: "#",
+    siteLink: "https://daraz.com.np",
     codeLink: "#",
   },
   {
     title: "Blog App",
     description: "A blogging platform for sharing articles and thoughts.",
     image: "blog.jpg",
-    siteLink: "#",
+    siteLink: "https://samriddhagautam.com.np/blog",
     codeLink: "#",
   },
 ];
@@ -51,7 +51,7 @@ const cards = [
 export default function Projects() {
     return (
       <section id="projects" className="min-h-screen flex flex-col items-center pb-32">
-        <h1 className="sm:text-4xl md:text-6xl py-8 text-center font-bold">My<strong className="text-customGreen">Works</strong></h1>
+        <h1 className="text-4xl md:text-6xl py-8 text-center font-bold">My<strong className="text-customGreen">Works</strong></h1>
         <p className="text-3sm"> 
           These are my my most recent projects.
         </p>
@@ -69,7 +69,7 @@ export default function Projects() {
           </h1>
           <img src={card.image} alt={card.title} className="w-full mt-4 h-40 object-cover rounded-md" />
           <p className="text-center">{card.description}</p>
-          <div className="flex flex-col lg:flex-row justify-center m-4 gap-4">
+          <div className="flex flex-col justify-center m-4 gap-4">
             <a href={card.siteLink} className="flex items-center justify-center gap-2 p-3
                    text-sm md:text-lg bg-customGreen text-white rounded-md  
                   shadow-md hover:shadow-[0_0_3px_1px_rgba(255,255,255,0.8)] transition ease-in-out">
