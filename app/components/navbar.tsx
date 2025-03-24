@@ -89,7 +89,7 @@ const Navbar = () => {
         </button>
 
         {/* Logo */}
-        <Link href="/" className="flex font-bold text-4xl text-green-500 z-50">
+        <Link href="/" className="flex font-bold text-4xl text-green-700 md:text-green-500  z-50">
           Sg.
         </Link>
 

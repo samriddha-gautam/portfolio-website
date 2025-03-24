@@ -1,0 +1,7 @@
+{
+    "good": ["great", "perfect", "awesome", "nice"],
+    "bad": ["terrible", "awful", "poor"],
+    "projects": ["work", "portfolio", "stuff"],
+    "hi": ["hello", "hey", "greetings","yo","hola"],
+    "contact": ["message", "reach", "form"]
+  }

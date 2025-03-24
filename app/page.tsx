@@ -15,7 +15,7 @@ export default function Home() {
     <BlobBackground>
     <div className="z-50 ">
       <Navbar />
-        <main>
+        <main className="md:mx-24">
           <section className="relative min-h-screen">
             <Main />
           </section>

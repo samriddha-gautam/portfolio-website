@@ -4,7 +4,7 @@ import TechStackCards from "./techstack";
 export default function AboutMe() {
     return (
       <section id="about-me" className="min-h-screen flex flex-col pb-32">
-        <div className="mx-12">
+        <div className="mx-6">
         <h1 className="text-4xl md:text-6xl py-8 text-center font-bold">Know<strong className="text-customGreen">Me</strong></h1>
         <p className="text-xl md:text-2xl font-normal"> 
           Hello everyone, my name is <span className="text-customGreen font-normal">Samriddha</span>. 

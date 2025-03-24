@@ -1,3 +1,4 @@
+import { transform } from "next/dist/build/swc/generated-native";
 import { withRouter } from "next/router";
 import type { Config } from "tailwindcss";
 
@@ -31,6 +32,12 @@ export default {
                 sans: ["Inter", "sans-serif"], // Custom font
               },
     },
+    keyframes: {
+      pulsate: {
+        "0%": { transform: "scale(0.9)" },
+        "100%": { transform: "scale(1.1)" },
+      },
+    }
   },
   plugins: [],
 } satisfies Config;

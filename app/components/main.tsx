@@ -7,7 +7,7 @@ export default function Main() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col justify-center px-6 lg:px-32 text-center lg:text-left"
+      className="min-h-screen flex flex-col justify-center px-6  text-center lg:text-left"
     >
       <div className="pb-8">
         <div className={`md:flex justify-center lg:justify-start text-3xl sm:text-4xl`}>
