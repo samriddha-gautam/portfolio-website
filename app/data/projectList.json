@@ -1,0 +1,44 @@
+[
+    {
+      "title": "ChatBot",
+      "description": "A simple chatbot that uses natural language processing.",
+      "image": "chatbot.jpg",
+      "siteLink": "https://grok.com",
+      "codeLink": "#"
+    },
+    {
+      "title": "Weather App",
+      "description": "A real-time weather app fetching live weather data.",
+      "image": "weather.jpg",
+      "siteLink": "#",
+      "codeLink": "#"
+    },
+    {
+      "title": "To-Do List",
+      "description": "A simple and effective task management tool.",
+      "image": "todo.jpg",
+      "siteLink": "#",
+      "codeLink": "#"
+    },
+    {
+      "title": "Portfolio",
+      "description": "A personal portfolio showcasing projects and skills.",
+      "image": "portfolio.jpg",
+      "siteLink": "https://samriddhagautam.com.np",
+      "codeLink": "https://github.com/samriddha-gautam/portfolio-website"
+    },
+    {
+      "title": "E-Commerce",
+      "description": "An online store built with modern web technologies.",
+      "image": "ecommerce.jpg",
+      "siteLink": "https://daraz.com.np",
+      "codeLink": "#"
+    },
+    {
+      "title": "Blog App",
+      "description": "A blogging platform for sharing articles and thoughts.",
+      "image": "blog.jpg",
+      "siteLink": "https://samriddhagautam.com.np/blog",
+      "codeLink": "#"
+    }
+  ]

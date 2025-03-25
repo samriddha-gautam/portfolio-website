@@ -4,12 +4,17 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ImCross } from "react-icons/im";
 import { LuCircleArrowUp } from "react-icons/lu";
-import { SiProbot } from "react-icons/si";
 import { FaRobot } from "react-icons/fa6";
 
 const ChatAndScrollToTop = () => {
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState<string[]>([]);
+  const [messages, setMessages] = useState<string[]>([
+    "Bot: Hello! I'm GautamBot, a lowly creation of  my God Samriddha Gautam . My god gave me abilities to perform various tasks that include:\n" +
+    "- 'Go to (name_of_section)' to scroll to that section\n" +
+    "- 'Clear chat' to reset our conversation\n" +
+    "- 'Or try 'help' for list of all possible commands\n" +
+    "What would you like to do?"
+  ]);
   const [isOpen, setIsOpen] = useState(false);
   const [isScrollVisible, setIsScrollVisible] = useState(false);
 
@@ -73,17 +78,17 @@ const ChatAndScrollToTop = () => {
   return (
     <>
       {/* Mini navbar-like box for Chat and ScrollToTop buttons */}
-      <div className="fixed top-2/3 right-4 z-50 flex 
+      <div className="fixed bottom-4 right-3 z-50 flex 
                       flex-col items-center gap-4 backdrop-blur-[2px]
-                      p-2 rounded-full shadow-lg border dark:border-white/20 ">
+                      p-2 rounded-full shadow-lg border dark:border-white/20">
         {/* Chat Button */}
         <button
           onClick={() => setIsOpen(true)}
-          className="bg-customGreen text-white p-2  rounded-full 
+          className="bg-customGreen text-white p-2 rounded-full 
                        shadow-lg hover:scale-110 hover:bg-opacity-80 
-                       transition-all duration-100 "
+                       transition-all duration-100"
         >
-          <FaRobot size={39} className="hover:animate-none animate-[pulsate_1.5s_ease-in-out_infinite] "/>
+          <FaRobot size={39} className="hover:animate-none animate-[pulsate_2s_ease-out_infinite]" />
         </button>
 
         {/* ScrollToTop Button */}
@@ -121,7 +126,7 @@ const ChatAndScrollToTop = () => {
                   {messages.map((msg, idx) => (
                     <motion.p
                       key={idx}
-                      className="mb-2"
+                      className="mb-2 whitespace-pre-line" // Preserve line breaks
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.3 }}

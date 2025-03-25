@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import { LuSend } from "react-icons/lu";
+
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -50,7 +52,7 @@ export default function Contact() {
       </h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 bg-black/20 backdrop-blur-sm p-6 rounded-lg shadow-md">
         <div className="flex flex-col md:flex-row gap-2 p-4 bg-customGreen/50 rounded-lg">
-          <label className="md:w-24 font-semibold text-xl">Name:</label>
+          <label className="md:w-24 font-semibold text-xl">Name :</label>
           <input 
             type="text" 
             name="name"
@@ -61,7 +63,7 @@ export default function Contact() {
           />
         </div>
         <div className="flex flex-col md:flex-row gap-2 p-4 bg-customGreen/50 rounded-lg ">
-          <label className="md:w-24 font-semibold text-xl">Email:</label>
+          <label className="md:w-24 font-semibold text-xl">Email :</label>
           <input 
             type="email" 
             name="email"
@@ -72,18 +74,24 @@ export default function Contact() {
           />
         </div>
         <div className="flex flex-col md:flex-row gap-2 p-4 bg-customGreen/50 rounded-lg">
-          <label className="md:w-24 font-semibold text-xl">Message:</label>
+          <label className="md:w-24 font-semibold text-xl">Note :</label>
           <textarea
             name="message"
             value={formData.message}
             onChange={handleChange}
             rows={4}
-            className="rounded-3xl w-full p-3 text-gray-600 focus:outline-none font-semibold resize-none placeholder-gray-500 placeholder-opacity-50"
+            className="rounded-3xl p-3 text-gray-600 focus:outline-none font-semibold resize-none placeholder-gray-500 placeholder-opacity-50"
             placeholder="Any Message?"
           ></textarea>
         </div>
-        <button type="submit" className="bg-customGreen p-3 rounded-xl font-semibold hover:bg-white hover:text-customGreen hover:shadow-md transition duration-200 ease-in-out " disabled={loading}>
-          {loading ? "Sending..." : "Send"}
+        <button type="submit" 
+        className="flex items-center justify-center gap-2
+         bg-customGreen p-3 rounded-xl font-semibold hover:bg-white 
+         hover:text-customGreen hover:shadow-md transition duration-200 
+         ease-in-out md:text-xl" 
+         disabled={loading}>
+          <LuSend size={28}/>
+          {loading ? "Sending..." : "Send Message"}
         </button>
         {responseMessage && <p className="text-white">{responseMessage}</p>}
       </form>
