@@ -10,7 +10,6 @@ import { IoLogoVercel } from "react-icons/io5";
 import { AiFillOpenAI } from "react-icons/ai";
 import { FaSlack, FaFigma } from "react-icons/fa6";
 import gsap from "gsap";
-import FadeInSection from "./FadeInSection";
 
 const cards = [
   { icon: <FaReact size={67} /> },
@@ -44,6 +43,10 @@ export default function TechStackCards() {
   const toolsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Copy ref values to variables
+    const skillsElement = skillsRef.current;
+    const toolsElement = toolsRef.current;
+
     // Function to calculate columns and animate
     const animateGrid = (items: HTMLCollection, isSkills: boolean = true) => {
       if (!items) return;
@@ -51,7 +54,7 @@ export default function TechStackCards() {
       const totalItems = items.length;
 
       // Determine columns based on screen size
-      let cols: number;
+      let cols;
       if (window.innerWidth >= 1024) cols = 4;
       else if (window.innerWidth >= 768) cols = 3;
       else cols = 2;
@@ -136,7 +139,7 @@ export default function TechStackCards() {
           const grid = entry.target.querySelector(".tools-grid") as HTMLDivElement;
           const items = grid?.children;
           if (items) {
-            const isSkills = entry.target === skillsRef.current;
+            const isSkills = entry.target === skillsElement;
             animateGrid(items, isSkills);
           }
           observer.unobserve(entry.target);
@@ -150,8 +153,8 @@ export default function TechStackCards() {
       threshold: 0.2,
     });
 
-    if (skillsRef.current) observer.observe(skillsRef.current);
-    if (toolsRef.current) observer.observe(toolsRef.current);
+    if (skillsElement) observer.observe(skillsElement);
+    if (toolsElement) observer.observe(toolsElement);
 
     // Adjust layout on resize
     const handleResize = () => {
@@ -194,8 +197,8 @@ export default function TechStackCards() {
 
     // Cleanup
     return () => {
-      if (skillsRef.current) observer.unobserve(skillsRef.current);
-      if (toolsRef.current) observer.unobserve(toolsRef.current);
+      if (skillsElement) observer.unobserve(skillsElement);
+      if (toolsElement) observer.unobserve(toolsElement);
       window.removeEventListener("resize", handleResize);
       observer.disconnect();
     };
@@ -203,7 +206,6 @@ export default function TechStackCards() {
 
   return (
     <div>
-      <FadeInSection>
       <div ref={skillsRef} className="sm:pt-12 pt-32 pb-24 flex flex-col items-center">
         <h1 className="text-2xl pb-8 text-center underline font-bold">My Skills</h1>
         <div className="tools-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 m-4 md:m-12">
@@ -220,8 +222,6 @@ export default function TechStackCards() {
           ))}
         </div>
       </div>
-      </FadeInSection>
-      <FadeInSection>
       <div ref={toolsRef} className="sm:pt-12 py-32 flex flex-col items-center">
         <h1 className="text-2xl pb-8 text-center underline font-bold">Tools I Use</h1>
         <div className="tools-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 m-4 md:m-12">
@@ -238,7 +238,6 @@ export default function TechStackCards() {
           ))}
         </div>
       </div>
-      </FadeInSection>
     </div>
   );
 }

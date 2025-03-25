@@ -20,8 +20,6 @@ export default function Projects() {
       else if (window.innerWidth >= 768) cols = 2; // md:grid-cols-2
       else cols = 1; // grid-cols-1
 
-      // Calculate rows
-      const rows = Math.ceil(totalItems / cols);
 
       // Sort items based on the desired animation order
       const itemsArray = Array.from(items) as HTMLElement[];

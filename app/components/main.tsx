@@ -3,17 +3,18 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { LuGitFork, LuFileDown } from "react-icons/lu";
 
-export default function Main() {
-  // List of greetings in different languages
-  const greetings = [
-    "Hello",
-    "नमस्ते", 
-    "こんにちは",
-    "Hola", 
-    "你好",
-    "Bonjour",
-  ];
+// Move greetings array outside the component
+const greetings = [
+  "Hello", // English
+  "Hola", // Spanish
+  "Bonjour", // French
+  "नमस्ते", // Hindi
+  "你好", // Mandarin
+  "こんにちは", // Japanese
+  "Ciao", // Italian
+];
 
+export default function Main() {
   // State to track the current greeting index and displayed text
   const [currentGreetingIndex, setCurrentGreetingIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
@@ -27,7 +28,7 @@ export default function Main() {
     blink: {
       opacity: [1, 0, 1],
       transition: {
-        duration: 0.8,
+        duration: 0.5,
         repeat: Infinity,
         ease: "linear",
       },
@@ -66,7 +67,7 @@ export default function Main() {
     }
 
     return () => clearTimeout(timeout);
-  }, [displayedText, isTyping, currentGreeting, currentGreetingIndex, greetings]);
+  }, [displayedText, isTyping, currentGreeting, currentGreetingIndex]);
 
   return (
     <section
