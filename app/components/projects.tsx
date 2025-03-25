@@ -12,7 +12,7 @@ export default function Projects() {
     const animateCards = (items: HTMLCollection) => {
       if (!items) return;
 
-      const totalItems = items.length;
+      // const totalItems = items.length;
 
       // Determine columns based on screen size
       let cols: number;
@@ -62,7 +62,7 @@ export default function Projects() {
         {
           scale: 1, // Grow to full size
           opacity: 1,
-          duration: 0.5,
+          duration: 0.1,
           stagger: 0.2, // 0.2s delay between each card
           ease: "elastic.out(1, 0.5)", // Smooth, bouncy effect
           overwrite: "auto",
