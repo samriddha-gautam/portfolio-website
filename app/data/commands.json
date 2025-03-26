@@ -1,45 +1,49 @@
 {
-    "scroll_to_projects": [
-      "take me to projects",
-      "go to projects",
-      "scroll projects",
-      "projects scroll",
-      "show me projects",
-      "project",
-      "projects"
-    ],
-    "scroll_to_contact": [
-      "take me to contact",
-      "go to contact",
-      "scroll contact",
-      "contact scroll",
-      "contact form",
-      "show me contact",
-      "contact"
-    ],
-    "scroll_to_about": [
-      "take me to about",
-      "go to about",
-      "scroll about",
-      "about scroll",
-      "show me about",
-      "about",
-      "about me"
-    ],
-    "scroll_to_skills": [
-      "take me to skills",
-      "go to skills",
-      "scroll skills",
-      "skills scroll",
-      "show me skills",
-      "skills",
-      "skill",
-      "what are your skills"
-    ],
-    "clear_chat": [
-      "clear", 
-      "reset chat", 
-      "clean chat",
-      "clean up"
-    ]
-  }
+  "scroll_to_projects": [
+    "scroll to projects",
+    "take me to projects",
+    "go to projects",
+    "scroll projects",
+    "projects scroll",
+    "show me projects",
+    "project",
+    "projects"
+  ],
+  "scroll_to_contact": [
+    "scroll to contact",
+    "take me to contact",
+    "go to contact",
+    "scroll contact",
+    "contact scroll",
+    "contact form",
+    "show me contact",
+    "contact"
+  ],
+  "scroll_to_about": [
+    "scroll to about",
+    "take me to about",
+    "go to about",
+    "scroll about",
+    "about scroll",
+    "show me about",
+    "about",
+    "about me"
+  ],
+  "scroll_to_skills": [
+    "scroll to skills",
+    "take me to skills",
+    "go to skills",
+    "scroll skills",
+    "skills scroll",
+    "show me skills",
+    "skills",
+    "skill",
+    "what are your skills"
+  ],
+  "clear_chat": [
+    "clear",
+    "reset chat",
+    "clean chat",
+    "clean up"
+  ]
+}

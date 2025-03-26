@@ -1,15 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ImCross } from "react-icons/im";
 import { LuCircleArrowUp } from "react-icons/lu";
 import { FaRobot } from "react-icons/fa6";
 
-const ChatAndScrollToTop = () => {
+const ScrollToTop = () => {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<string[]>([
-    "Bot: Hello! I'm GautamBot, a lowly creation of  my God Samriddha Gautam . My god gave me abilities to perform various tasks that include:\n" +
+    "Bot: Hello! I'm GautamBot, a lowly creation of my God Samriddha Gautam. My god gave me abilities to perform various tasks that include:\n" +
     "- 'Go to (name_of_section)' to scroll to that section\n" +
     "- 'Clear chat' to reset our conversation\n" +
     "- 'Or try 'help' for list of all possible commands\n" +
@@ -18,7 +18,15 @@ const ChatAndScrollToTop = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrollVisible, setIsScrollVisible] = useState(false);
 
-  // Disable scrolling when chatbox is open
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (isOpen && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isOpen]);
+
+  // Modified useEffect to prevent scrolling when chat is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -30,12 +38,10 @@ const ChatAndScrollToTop = () => {
     };
   }, [isOpen]);
 
-  // Toggle visibility of ScrollToTop button based on scroll position
   useEffect(() => {
     const toggleVisibility = () => {
-      setIsScrollVisible(window.scrollY > 100); // Show only when scrolled past 100px
+      setIsScrollVisible(window.scrollY > 100);
     };
-
     window.addEventListener("scroll", toggleVisibility);
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
@@ -49,20 +55,29 @@ const ChatAndScrollToTop = () => {
     const res = await fetch(`/api/chat?message=${encodeURIComponent(input)}`);
     const data = await res.json();
 
-    // Handle different actions from the backend
     if (data.action === "clear_chat") {
-      setMessages([]); // Clear the chat history
+      setMessages([]);
     } else {
       setMessages((prev) => [...prev, `Bot: ${data.reply}`]);
     }
 
     if (data.action === "scroll" && data.target) {
       const section = document.getElementById(data.target);
+      console.log("Scroll data:", { target: data.target, section });
       if (section) {
+        const rect = section.getBoundingClientRect();
+        const scrollTop = window.pageYOffset + rect.top - 50;
+        console.log("Scrolling to:", scrollTop);
         window.scrollTo({
-          top: section.offsetTop,
+          top: scrollTop,
           behavior: "smooth",
         });
+        setTimeout(() => setIsOpen(false), 300);
+      } else {
+        setMessages((prev) => [
+          ...prev,
+          `Bot: Oops! Couldn't find the "${data.target}" section.`,
+        ]);
       }
     } else if (data.action === "open_url" && data.url) {
       window.open(data.url, "_blank");
@@ -77,11 +92,9 @@ const ChatAndScrollToTop = () => {
 
   return (
     <>
-      {/* Mini navbar-like box for Chat and ScrollToTop buttons */}
       <div className="fixed bottom-4 right-3 z-50 flex 
                       flex-col items-center gap-4 backdrop-blur-[2px]
                       p-2 rounded-full shadow-lg border dark:border-white/20">
-        {/* Chat Button */}
         <button
           onClick={() => setIsOpen(true)}
           className="bg-customGreen text-white p-2 rounded-full 
@@ -90,8 +103,6 @@ const ChatAndScrollToTop = () => {
         >
           <FaRobot size={39} className="hover:animate-none animate-[pulsate_2s_ease-out_infinite]" />
         </button>
-
-        {/* ScrollToTop Button */}
         <button
           onClick={scrollToTop}
           disabled={!isScrollVisible}
@@ -103,7 +114,6 @@ const ChatAndScrollToTop = () => {
         </button>
       </div>
 
-      {/* Chatbox and backdrop (when open) */}
       <AnimatePresence>
         {isOpen && (
           <>
@@ -121,12 +131,15 @@ const ChatAndScrollToTop = () => {
               exit={{ y: "100vh", opacity: 0 }}
               transition={{ type: "spring", stiffness: 100, damping: 20 }}
             >
-              <div className="relative bg-black text-customGreen shadow-lg rounded-md h-full flex flex-col">
-                <div className="flex-1 m-8 overflow-y-auto">
+              {/* Changed bg-gray-900 to bg-zinc-900 (adjust as needed) */}
+              <div className="relative bg-zinc-900 text-white shadow-lg rounded-md h-full flex flex-col border border-customGreen/30">
+                <div className="flex-1 m-6 p-8 overflow-y-auto">
                   {messages.map((msg, idx) => (
                     <motion.p
                       key={idx}
-                      className="mb-2 whitespace-pre-line" // Preserve line breaks
+                      className={`mb-3 whitespace-pre-line font-medium ${
+                        msg.startsWith("Bot:") ? "text-customGreen" : "text-gray-300"
+                      }`}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.3 }}
@@ -140,14 +153,15 @@ const ChatAndScrollToTop = () => {
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    className="w-full p-2 border rounded bg-gray-800 text-white placeholder-gray-400"
+                    className="w-full p-3 border rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-customGreen transition-all duration-300"
                     placeholder="Type here..."
+                    ref={inputRef}
                   />
                   <button type="submit" className="hidden" />
                 </form>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="absolute top-4 right-4 text-gray-400 transition-transform duration-300 hover:rotate-90"
+                  className="absolute top-4 right-4 p-4 text-gray-400 transition-transform duration-300 hover:rotate-90 hover:text-customGreen"
                 >
                   <ImCross size={22} />
                 </button>
@@ -160,4 +174,4 @@ const ChatAndScrollToTop = () => {
   );
 };
 
-export default ChatAndScrollToTop;
+export default ScrollToTop;
