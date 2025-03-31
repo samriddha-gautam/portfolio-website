@@ -1,7 +1,6 @@
 import { GiSoccerBall , GiCampingTent , GiGamepad  } from "react-icons/gi";
 import TechStackCards from "./techstack";
 import FadeInSection from "./FadeInSection";
-import { FaD } from "react-icons/fa6";
 
 export default function AboutMe() {
     return (
