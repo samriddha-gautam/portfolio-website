@@ -3,6 +3,7 @@ import { FaGitAlt } from "react-icons/fa";
 import { TbWorldCode } from "react-icons/tb";
 import projectList from "@/app/data/projectList.json";
 import gsap from "gsap";
+import FadeInSection from "./FadeInSection";
 
 export default function Projects() {
   const projectsRef = useRef<HTMLDivElement>(null);
@@ -109,6 +110,7 @@ export default function Projects() {
         My<strong className="text-customGreen">Works</strong>
       </h1>
       <p className="text-3sm">These are my most recent projects.</p>
+      <FadeInSection>
       <div className="project-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-12">
         {projectList.map((card, index) => (
           <div
@@ -153,6 +155,7 @@ export default function Projects() {
           </div>
         ))}
       </div>
+      </FadeInSection>
       <hr />
     </section>
   );

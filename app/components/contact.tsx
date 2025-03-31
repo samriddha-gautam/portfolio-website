@@ -80,7 +80,7 @@ export default function Contact() {
             placeholder="Your Email"
           />
         </div>
-
+        
         {/* Message Field */}
         <div className="mb-6">
           <label className="block text-white font-semibold mb-2 text-lg">Message</label>
