@@ -1,11 +1,10 @@
 import { GiSoccerBall, GiCampingTent, GiGamepad } from "react-icons/gi";
 import TechStackCards from "./techstack";
-import FadeInSection from "./FadeInSection";
 import AnimatedHeading from "./AnimateHeading"; // Fixed import name (AnimateHeading -> AnimatedHeading)
 
 export default function AboutMe() {
   return (
-    <section id="about-me" className="min-h-screen flex flex-col items-center pb-32">
+    <section id="about" className="min-h-screen flex flex-col items-center pb-32">
       <div className="mx-6 flex flex-col items-center"> {/* Added items-center and flex */}
         <div className="flex flex-row items-center gap-2 py-8">
           <AnimatedHeading
