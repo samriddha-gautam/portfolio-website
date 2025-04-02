@@ -1,5 +1,4 @@
-// import type { Metadata } from "next";
-// import { Geist, Geist_Mono } from "next/font/google";
+
 import StarryBackground from "./components/StarryBackground";
 import "./globals.css";
 import { Comfortaa } from 'next/font/google';

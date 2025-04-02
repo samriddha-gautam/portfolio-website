@@ -4,9 +4,10 @@ import { useRef, useEffect, useState } from "react";
 
 interface FadeInSectionProps {
   children: React.ReactNode;
+  className?: string; // Optional className prop for custom styling
 }
 
-const FadeInSection: React.FC<FadeInSectionProps> = ({ children }) => {
+const FadeInSection: React.FC<FadeInSectionProps> = ({ children, className = "" }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.1 });
   const [scrollDirection, setScrollDirection] = useState<"up" | "down" | null>(null);
@@ -30,7 +31,7 @@ const FadeInSection: React.FC<FadeInSectionProps> = ({ children }) => {
   const variants = {
     hidden: {
       opacity: 0,
-      y: scrollDirection === "down" ? 100 : -100, // Increased from 50/-50 to 100/-100
+      y: scrollDirection === "down" ? 100 : -100,
     },
     visible: {
       opacity: 1,
@@ -44,7 +45,8 @@ const FadeInSection: React.FC<FadeInSectionProps> = ({ children }) => {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={variants}
-      transition={{ duration: 0.8, ease: "easeOut" }} // Increased duration from 0.6 to 0.8
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className={className} // Apply the passed className
     >
       {children}
     </motion.div>

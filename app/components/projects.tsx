@@ -4,6 +4,7 @@ import { TbWorldCode } from "react-icons/tb";
 import projectList from "@/app/data/projectList.json";
 import gsap from "gsap";
 import FadeInSection from "./FadeInSection";
+import AnimatedHeading from "./AnimateHeading";
 
 export default function Projects() {
   const projectsRef = useRef<HTMLDivElement>(null);
@@ -106,10 +107,23 @@ export default function Projects() {
       ref={projectsRef}
       className="min-h-screen flex flex-col items-center pb-32"
     >
-      <h1 className="text-4xl md:text-6xl py-8 text-center font-bold">
-        My<strong className="text-customGreen">Works</strong>
-      </h1>
-      <p className="text-3sm">These are my most recent projects.</p>
+      <FadeInSection>
+      <div>
+        <div className="flex flex-row items-center gap-2 py-8">
+            <AnimatedHeading
+              text="My"
+              className="dark:text-white text-4xl md:text-6xl font-bold"
+              delay={0}
+            />
+            <AnimatedHeading
+              text="Works"
+              className="text-customGreen text-4xl md:text-6xl font-bold"
+              delay={2 * 0.1}
+            />
+        </div>
+        <p className="text-3sm">These are my most recent projects.</p>
+      </div>
+      </FadeInSection>
       <FadeInSection>
       <div className="project-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-12">
         {projectList.map((card, index) => (

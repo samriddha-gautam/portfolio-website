@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import { LuSend } from "react-icons/lu";
+import FadeInSection from "./FadeInSection";
+import AnimatedHeading from "./AnimateHeading";
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -44,16 +46,23 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="min-h-screen flex flex-col items-center gap-8 p-16">
-      {/* Heading */}
-      <h1 className="dark:text-white text-4xl md:text-6xl font-bold text-center">
-        Contact <strong className="text-customGreen">Me</strong>
-      </h1>
-
-      {/* Form Container */}
+    <section id="contact" className="min-h-screen flex flex-col items-center gap-8 p-12">
+      <div className="flex flex-row items-center gap-2">
+        <AnimatedHeading
+          text="Contact"
+          className="dark:text-white text-4xl md:text-6xl font-bold"
+          delay={0} 
+        />
+        <AnimatedHeading
+          text="Me"
+          className="text-customGreen text-4xl md:text-6xl font-bold"
+          delay={7*0.1}
+        />
+      </div>
+      <FadeInSection className="w-full max-w-lg">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-lg p-8 rounded-2xl bg-gradient-to-br from-black/80 to-customGreen/20 backdrop-blur-lg shadow-xl border border-customGreen/30"
+        className="p-8 rounded-2xl bg-gradient-to-br from-black/80 to-customGreen/20 backdrop-blur-lg shadow-xl border border-customGreen/30"
       >
         {/* Name Field */}
         <div className="mb-6">
@@ -111,6 +120,7 @@ export default function Contact() {
           </p>
         )}
       </form>
+      </FadeInSection>
     </section>
   );
 }

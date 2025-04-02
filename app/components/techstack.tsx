@@ -1,5 +1,4 @@
-import React from "react"
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { FaReact, FaPython, FaHtml5, FaGit } from "react-icons/fa";
 import { SiMongodb, SiTailwindcss, SiMysql, SiLaravel, SiPhp, SiDjango, SiPostman, SiLinux } from "react-icons/si";
 import { DiNodejs } from "react-icons/di";
@@ -43,39 +42,28 @@ const tools = [
 export default function TechStackCards() {
   const skillsRef = useRef<HTMLDivElement>(null);
   const toolsRef = useRef<HTMLDivElement>(null);
-  const [scrollDirection, setScrollDirection] = useState<"up" | "down" | null>(null);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY) {
-        setScrollDirection("down");
-      } else if (currentScrollY < lastScrollY) {
-        setScrollDirection("up");
-      }
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
-
-  useEffect(() => {
+    // Copy ref values to variables
     const skillsElement = skillsRef.current;
     const toolsElement = toolsRef.current;
 
+    // Function to calculate columns and animate
     const animateGrid = (items: HTMLCollection, isSkills: boolean = true) => {
       if (!items) return;
 
       const totalItems = items.length;
+
+      // Determine columns based on screen size
       let cols;
       if (window.innerWidth >= 1024) cols = 4;
       else if (window.innerWidth >= 768) cols = 3;
       else cols = 2;
 
+      // Calculate items in the last row
       const itemsInLastRow = totalItems % cols || cols;
 
+      // Reset previous col-span classes
       for (const item of Array.from(items) as HTMLElement[]) {
         item.classList.remove(
           "lg:col-span-2",
@@ -87,6 +75,7 @@ export default function TechStackCards() {
         );
       }
 
+      // Apply col-span to last row items if needed
       if (itemsInLastRow < cols) {
         const startOfLastRow = totalItems - itemsInLastRow;
         const spanValue = Math.floor(cols / itemsInLastRow);
@@ -98,6 +87,7 @@ export default function TechStackCards() {
         }
       }
 
+      // Sort items for animation order
       const itemsArray = Array.from(items) as HTMLElement[];
       const itemsPerRow = cols;
       const sortedItems = itemsArray.map((item, index) => ({
@@ -107,11 +97,15 @@ export default function TechStackCards() {
         colIndex: index % itemsPerRow,
       }));
 
+      // Sort for left-to-right (Skills) or right-to-left (Tools)
       sortedItems.sort((a, b) => {
         if (a.rowIndex !== b.rowIndex) return a.rowIndex - b.rowIndex;
-        return isSkills ? a.colIndex - b.colIndex : b.colIndex - a.colIndex;
+        return isSkills
+          ? a.colIndex - b.colIndex
+          : b.colIndex - a.colIndex;
       });
 
+      // Animate one by one with row dependency
       const itemDuration = 0.1;
       gsap.fromTo(
         sortedItems.map((entry) => entry.item),
@@ -139,6 +133,7 @@ export default function TechStackCards() {
       );
     };
 
+    // Intersection Observer callback
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry: IntersectionObserverEntry) => {
         if (entry.isIntersecting) {
@@ -146,16 +141,14 @@ export default function TechStackCards() {
           const items = grid?.children;
           if (items) {
             const isSkills = entry.target === skillsElement;
-            if (scrollDirection === "down") {
-              animateGrid(items, isSkills);
-            } else {
-              gsap.set(items, { opacity: 1, y: 0, scale: 1, visibility: "visible" });
-            }
+            animateGrid(items, isSkills);
           }
+          observer.unobserve(entry.target);
         }
       });
     };
 
+    // Set up Intersection Observer
     const observer = new IntersectionObserver(observerCallback, {
       root: null,
       threshold: 0.2,
@@ -164,6 +157,7 @@ export default function TechStackCards() {
     if (skillsElement) observer.observe(skillsElement);
     if (toolsElement) observer.observe(toolsElement);
 
+    // Adjust layout on resize
     const handleResize = () => {
       const grids = document.querySelectorAll(".tools-grid") as NodeListOf<HTMLDivElement>;
       grids.forEach((grid) => {
@@ -202,28 +196,22 @@ export default function TechStackCards() {
 
     window.addEventListener("resize", handleResize);
 
+    // Cleanup
     return () => {
       if (skillsElement) observer.unobserve(skillsElement);
       if (toolsElement) observer.unobserve(toolsElement);
       window.removeEventListener("resize", handleResize);
       observer.disconnect();
     };
-  }, [scrollDirection]);
+  }, []);
 
-  // Updated renderSection to handle nullable ref and explicit JSX.Element return type
-  const renderSection = (
-    ref: React.RefObject<HTMLDivElement | null>,
-    title: string,
-    items: { icon: JSX.Element }[]
-  ): JSX.Element => (
-    <FadeInSection>
-      <div
-        ref={ref}
-        className={`sm:pt-12 ${title === "My Skills" ? "pt-32 pb-24" : "py-32"} flex flex-col items-center`}
-      >
-        <h1 className="text-2xl pb-8 text-center underline font-bold">{title}</h1>
+  return (
+    <div>
+      <FadeInSection>
+      <div ref={skillsRef} className="sm:pt-12 pt-32 pb-24 flex flex-col items-center">
+        <h1 className="text-2xl pb-8 text-center underline font-bold">My Skills</h1>
         <div className="tools-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 m-4 md:m-12">
-          {items.map((item, index) => (
+          {cards.map((card, index) => (
             <div
               key={index}
               className="flex border-2 rounded-lg bg-black/20 backdrop-blur-[2px] 
@@ -231,18 +219,30 @@ export default function TechStackCards() {
                          duration-300 ease-in-out items-center justify-center p-4 opacity-0 invisible"
               style={{ boxShadow: "0px 2px 6px rgba(23, 119, 14, 0.5)" }}
             >
-              {item.icon}
+              {card.icon}
             </div>
           ))}
         </div>
       </div>
-    </FadeInSection>
-  );
-
-  return (
-    <div>
-      {renderSection(skillsRef, "My Skills", cards)}
-      {renderSection(toolsRef, "Tools I Use", tools)}
+      </FadeInSection>
+      <FadeInSection>
+      <div ref={toolsRef} className="sm:pt-12 py-32 flex flex-col items-center">
+        <h1 className="text-2xl pb-8 text-center underline font-bold">Tools I Use</h1>
+        <div className="tools-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 m-4 md:m-12">
+          {tools.map((tool, index) => (
+            <div
+              key={index}
+              className="flex border-2 rounded-lg bg-black/20 backdrop-blur-[2px] 
+                         border-customGreen md:p-10 transition 
+                         duration-300 ease-in-out items-center justify-center p-4 opacity-0 invisible"
+              style={{ boxShadow: "0px 2px 6px rgba(23, 119, 14, 0.5)" }}
+            >
+              {tool.icon}
+            </div>
+          ))}
+        </div>
+      </div>
+      </FadeInSection>
     </div>
   );
 }

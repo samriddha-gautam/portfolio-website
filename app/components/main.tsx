@@ -6,11 +6,11 @@ import { LuGitFork, LuFileDown } from "react-icons/lu";
 // Move greetings array outside the component
 const greetings = [
   "Hello", // English
+  "नमस्ते", // Hindi
+  "こんにちは", // Japanese
   "Hola", // Spanish
   "Bonjour", // French
-  "नमस्ते", // Hindi
   "你好", // Mandarin
-  "こんにちは", // Japanese
   "Ciao", // Italian
 ];
 

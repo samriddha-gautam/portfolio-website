@@ -33,7 +33,7 @@ export default function Home() {
           <section id="contact" className="py-6 scroll-mt-14">
             <Contact/>
           </section>
-          </FadeInSection>
+          </FadeInSection> 
           <ScrollToTop />
         </main>
         <footer>
