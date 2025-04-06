@@ -11,6 +11,7 @@ import { AiFillOpenAI } from "react-icons/ai";
 import { FaSlack, FaFigma } from "react-icons/fa6";
 import gsap from "gsap";
 import FadeInSection from "./FadeInSection";
+import { GrDocker } from "react-icons/gr";
 
 const cards = [
   { icon: <FaReact size={67} /> },
@@ -37,6 +38,7 @@ const tools = [
   { icon: <SiLinux size={67} /> },
   { icon: <FaSlack size={67} /> },
   { icon: <FaFigma size={67} /> },
+  { icon: <GrDocker size={67} /> },
 ];
 
 export default function TechStackCards() {
@@ -75,7 +77,7 @@ export default function TechStackCards() {
         );
       }
 
-      // Apply col-span to last row items if needed
+      // Apply col-span to last row items
       if (itemsInLastRow < cols) {
         const startOfLastRow = totalItems - itemsInLastRow;
         const spanValue = Math.floor(cols / itemsInLastRow);
